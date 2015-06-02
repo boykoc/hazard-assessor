@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @hazard.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @hazard.description %>
+</p>
+
+<p>
+  <strong>Exposure:</strong>
+  <%= @hazard.exposure %>
+</p>
+
+<p>
+  <strong>Occurance:</strong>
+  <%= @hazard.occurance %>
+</p>
+
+<p>
+  <strong>Probability:</strong>
+  <%= @hazard.probability %>
+</p>
+
+<p>
+  <strong>Consequence:</strong>
+  <%= @hazard.consequence %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @hazard.rating %>
+</p>
+
+<p>
+  <strong>Control:</strong>
+  <%= @hazard.control %>
+</p>
+
+<%= link_to 'Edit', edit_hazard_path(@hazard) %> |
+<%= link_to 'Back', hazards_path %>

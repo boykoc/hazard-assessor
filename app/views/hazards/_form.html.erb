@@ -1,0 +1,49 @@
+<%= form_for(@hazard) do |f| %>
+  <% if @hazard.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hazard.errors.count, "error") %> prohibited this hazard from being saved:</h2>
+
+      <ul>
+      <% @hazard.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :exposure %><br>
+    <%= f.text_field :exposure %>
+  </div>
+  <div class="field">
+    <%= f.label :occurance %><br>
+    <%= f.text_field :occurance %>
+  </div>
+  <div class="field">
+    <%= f.label :probability %><br>
+    <%= f.text_field :probability %>
+  </div>
+  <div class="field">
+    <%= f.label :consequence %><br>
+    <%= f.text_field :consequence %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.text_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :control %><br>
+    <%= f.text_area :control %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
