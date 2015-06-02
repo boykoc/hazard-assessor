@@ -21,23 +21,41 @@
   </div>
   <div class="field">
     <%= f.label :exposure %><br>
-    <%= f.text_field :exposure %>
+    <%= f.select(:exposure, options_for_select(
+      [
+        ['Continuous', 1],
+        ['Frequent (daily)', 2],
+        ['Occasional (Once per week)', 3],
+        ['Unusual (one per month)', 4],
+        ['Rare (few per year)', 5],
+        ['Very Rare (yearly or less)', 6]
+      ], 3) 
+    ) %>
   </div>
   <div class="field">
     <%= f.label :occurance %><br>
-    <%= f.text_field :occurance %>
-  </div>
-  <div class="field">
-    <%= f.label :probability %><br>
-    <%= f.text_field :probability %>
+    <%= f.select(:occurance, options_for_select(
+      [
+        ['Very Likely (has happened/is happening)', 1],
+        ['Likely (probably – it could happen)', 2],
+        ['Rare (seldom but possible)', 3],
+        ['Very rare (very seldom, but possible)', 4],
+        ['Very unlikely (slight possibility)', 5],
+        ['Practically impossible', 6]
+      ], 3) 
+    ) %>
   </div>
   <div class="field">
     <%= f.label :consequence %><br>
-    <%= f.text_field :consequence %>
-  </div>
-  <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.text_field :rating %>
+    <%= f.select(:consequence, options_for_select(
+      [
+        ['Fatality or permanent disability, significant loss', 1],
+        ['Serious injury or illness with lost time or other loss', 2],
+        ['Moderate injury or illness with lost time or other loss', 3],
+        ['Minor injury or illness without lost time or other loss', 4],
+        ['No injury or illness, lost time or other loss', 5]
+      ], 3) 
+    ) %>
   </div>
   <div class="field">
     <%= f.label :control %><br>
