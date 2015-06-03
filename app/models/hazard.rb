@@ -1,4 +1,5 @@
 class Hazard < ActiveRecord::Base
+  belongs_to :assessment
   before_save :assess_hazard
 
   protected

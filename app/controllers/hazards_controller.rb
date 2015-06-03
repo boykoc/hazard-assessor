@@ -1,5 +1,6 @@
 class HazardsController < ApplicationController
   before_action :set_hazard, only: [:show, :edit, :update, :destroy]
+  before_action :set_assessment
 
   # GET /hazards
   # GET /hazards.json
@@ -24,11 +25,11 @@ class HazardsController < ApplicationController
   # POST /hazards
   # POST /hazards.json
   def create
-    @hazard = Hazard.new(hazard_params)
+    @hazard = @assessment.hazards.new(hazard_params)
 
     respond_to do |format|
       if @hazard.save
-        format.html { redirect_to @hazard, notice: 'Hazard was successfully created.' }
+        format.html { redirect_to assessment_hazard_path(@assessment, @hazard), notice: 'Hazard was successfully created.' }
         format.json { render :show, status: :created, location: @hazard }
       else
         format.html { render :new }
@@ -56,7 +57,7 @@ class HazardsController < ApplicationController
   def destroy
     @hazard.destroy
     respond_to do |format|
-      format.html { redirect_to hazards_url, notice: 'Hazard was successfully destroyed.' }
+      format.html { redirect_to assessment_hazards_path(@assessment), notice: 'Hazard was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,8 +68,13 @@ class HazardsController < ApplicationController
       @hazard = Hazard.find(params[:id])
     end
 
+    def set_assessment
+      @assessment = Assessment.find(params[:assessment_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def hazard_params
-      params.require(:hazard).permit(:name, :description, :exposure, :occurance, :probability, :consequence, :rating, :control)
+      params.require(:hazard).permit(:name, :description, :exposure, :occurance, :probability, :consequence, :rating, :control, :assessment_id)
     end
+
 end

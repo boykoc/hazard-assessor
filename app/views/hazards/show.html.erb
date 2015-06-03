@@ -40,5 +40,5 @@
   <%= @hazard.control %>
 </p>
 
-<%= link_to 'Edit', edit_hazard_path(@hazard) %> |
-<%= link_to 'Back', hazards_path %>
+<%= link_to 'Edit', edit_assessment_hazard_path(@assessment, @hazard.id) %> |
+<%= link_to 'Back', assessment_hazards_path(@assessment) %>

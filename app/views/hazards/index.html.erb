@@ -28,9 +28,9 @@
         <td><%= hazard.consequence %></td>
         <td><%= hazard.rating %></td>
         <td><%= hazard.control %></td>
-        <td><%= link_to 'Show', hazard %></td>
-        <td><%= link_to 'Edit', edit_hazard_path(hazard) %></td>
-        <td><%= link_to 'Destroy', hazard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', assessment_hazard_path(@assessment, hazard.id) %></td>
+        <td><%= link_to 'Edit', edit_assessment_hazard_path(@assessment, hazard.id) %></td>
+        <td><%= link_to 'Destroy', assessment_hazard_path(@assessment, hazard.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +38,4 @@
 
 <br>
 
-<%= link_to 'New Hazard', new_hazard_path %>
+<%= link_to 'New Hazard', new_assessment_hazard_path(@assessment) %>
