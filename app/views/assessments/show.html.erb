@@ -1,4 +1,18 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @assessment.name %>
+</p>
 
+<p>
+  <strong>Description:</strong>
+  <%= @assessment.description %>
+</p>
+
+<p>
+  <strong>Workplace:</strong>
+  <%= @assessment.workplace %>
+</p>
+
+<%= link_to 'Hazards', assessment_hazards_path(@assessment) %> |
 <%= link_to 'Edit', edit_assessment_path(@assessment) %> |
 <%= link_to 'Back', assessments_path %>

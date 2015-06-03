@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Assessments</h1>
 
 <table>
@@ -12,6 +10,9 @@
   <tbody>
     <% @assessments.each do |assessment| %>
       <tr>
+        <td><%= assessment.name %></td>
+        <td><%= assessment.description %></td>
+        <td><%= assessment.workplace %></td>
         <td><%= link_to 'Show', assessment %></td>
         <td><%= link_to 'Edit', edit_assessment_path(assessment) %></td>
         <td><%= link_to 'Destroy', assessment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
