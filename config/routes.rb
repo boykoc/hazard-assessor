@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  
+
+  resources :actions
+
   resources :assessments do
-    resources :hazards
+    resources :hazards do
+      resources :needed_controls, :only => [:create, :new]
+    end
   end
   devise_for :users
   root 'assessments#index'

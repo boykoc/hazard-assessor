@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603211649) do
+ActiveRecord::Schema.define(version: 20150605003917) do
+
+  create_table "actions", force: :cascade do |t|
+    t.integer  "hazard_id"
+    t.text     "content"
+    t.boolean  "completed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "actions", ["hazard_id"], name: "index_actions_on_hazard_id"
 
   create_table "assessments", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -39,6 +49,16 @@ ActiveRecord::Schema.define(version: 20150603211649) do
   end
 
   add_index "hazards", ["assessment_id"], name: "index_hazards_on_assessment_id"
+
+  create_table "needed_controls", force: :cascade do |t|
+    t.integer  "hazard_id"
+    t.text     "content"
+    t.boolean  "completed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "needed_controls", ["hazard_id"], name: "index_needed_controls_on_hazard_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

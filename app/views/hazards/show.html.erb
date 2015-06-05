@@ -40,3 +40,6 @@
 
 <%= link_to 'Edit', edit_assessment_hazard_path(@assessment, @hazard.id) %> |
 <%= link_to 'Back', assessment_hazards_path(@assessment) %>
+
+<%= render template: 'needed_controls/show' %>
+<%= render :partial => 'needed_controls/form', :needed_control => @hazard.neededControls %>

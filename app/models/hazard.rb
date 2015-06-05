@@ -1,5 +1,6 @@
 class Hazard < ActiveRecord::Base
   belongs_to :assessment
+  has_many :neededControls
   before_save :assess_hazard
 
   protected

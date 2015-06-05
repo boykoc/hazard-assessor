@@ -1,0 +1,25 @@
+<%= form_for([@assessment, @hazard, @hazard.neededControls.build]) do |f| %>
+  <% if @hazard.neededControls.build.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hazard.neededControls.build.errors.count, "error") %> prohibited this needed_control from being saved:</h2>
+
+      <ul>
+      <% @hazard.neededControls.build.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :completed %><br>
+    <%= f.check_box :completed %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

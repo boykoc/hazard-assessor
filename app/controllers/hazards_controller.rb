@@ -11,6 +11,7 @@ class HazardsController < ApplicationController
   # GET /hazards/1
   # GET /hazards/1.json
   def show
+    @needed_control = @hazard.neededControls.first
   end
 
   # GET /hazards/new
