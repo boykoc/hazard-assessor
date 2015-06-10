@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :assessments do
     resources :hazards do
-      resources :needed_controls, :only => [:create, :new]
+      resources :needed_controls
     end
   end
   devise_for :users

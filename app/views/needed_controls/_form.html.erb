@@ -1,16 +1,15 @@
-<%= form_for([@assessment, @hazard, @hazard.neededControls.build]) do |f| %>
-  <% if @hazard.neededControls.build.errors.any? %>
+<%= form_for([@assessment, @hazard, @needed_control]) do |f| %>
+  <% if @needed_control.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@hazard.neededControls.build.errors.count, "error") %> prohibited this needed_control from being saved:</h2>
+      <h2><%= pluralize(@needed_control.errors.count, "error") %> prohibited this needed_control from being saved:</h2>
 
       <ul>
-      <% @hazard.neededControls.build.errors.full_messages.each do |message| %>
+      <% @needed_control.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :content %><br>
     <%= f.text_area :content %>

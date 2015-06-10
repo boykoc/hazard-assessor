@@ -4,21 +4,27 @@ class NeededControlsController < ApplicationController
   # GET /needed_controls
   # GET /needed_controls.json
   def index
-    @needed_controls = NeededControl.all
+    @needed_control = NeededControl.all
   end
 
   # GET /needed_controls/1
   # GET /needed_controls/1.json
   def show
+    @assessment = Assessment.find(params[:assessment_id])
+    @hazard = Hazard.find(params[:hazard_id])
   end
 
   # GET /needed_controls/new
   def new
-    @needed_control = NeededControl.new
+    @assessment = Assessment.find(params[:assessment_id])
+    @hazard = Hazard.find(params[:hazard_id])
+    @needed_control = @hazard.build_neededControl
   end
 
   # GET /needed_controls/1/edit
   def edit
+    @assessment = Assessment.find(params[:assessment_id])
+    @hazard = Hazard.find(params[:hazard_id])
   end
 
   # POST /needed_controls
@@ -26,7 +32,7 @@ class NeededControlsController < ApplicationController
   def create
     @assessment = Assessment.find(params[:assessment_id])
     @hazard = Hazard.find(params[:hazard_id])
-    @needed_control = @hazard.neededControls.new(needed_control_params)
+    @needed_control = @hazard.build_neededControl(needed_control_params)
 
     respond_to do |format|
       if @needed_control.save
@@ -42,9 +48,11 @@ class NeededControlsController < ApplicationController
   # PATCH/PUT /needed_controls/1
   # PATCH/PUT /needed_controls/1.json
   def update
+    @assessment = Assessment.find(params[:assessment_id])
+    @hazard = Hazard.find(params[:hazard_id])
     respond_to do |format|
       if @needed_control.update(needed_control_params)
-        format.html { redirect_to @needed_control, notice: 'Needed control was successfully updated.' }
+        format.html { redirect_to assessment_hazard_path(@assessment, @hazard), notice: 'Needed control was successfully updated.' }
         format.json { render :show, status: :ok, location: @needed_control }
       else
         format.html { render :edit }
@@ -71,6 +79,6 @@ class NeededControlsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def needed_control_params
-      params.require(:needed_control).permit(:hazard_id, :content, :completed)
+      params.require(:needed_control).permit(:content, :completed)
     end
 end

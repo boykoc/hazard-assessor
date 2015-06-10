@@ -23,4 +23,6 @@
 
 <br>
 
-<%= link_to 'New Assessment', new_assessment_path %>
+<% if !@assessments.any? %>
+  <%= link_to 'New Assessment', new_assessment_path %>
+<% end %>

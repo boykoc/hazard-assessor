@@ -1,10 +1,10 @@
-<%= form_for([@assessment, @assessment.hazards.build]) do |f| %>
-<% if @assessment.hazards.build.errors.any? %>
+<%= form_for([@assessment, @hazard]) do |f| %>
+  <% if @hazard.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@assessment.hazards.errors.count, "error") %> prohibited this hazard from being saved:</h2>
+      <h2><%= pluralize(@hazard.errors.count, "error") %> prohibited this hazard from being saved:</h2>
 
       <ul>
-      <% @assessment.hazards.errors.full_messages.each do |message| %>
+      <% @hazard.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

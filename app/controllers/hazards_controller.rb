@@ -5,18 +5,18 @@ class HazardsController < ApplicationController
   # GET /hazards
   # GET /hazards.json
   def index
-    @hazards = Hazard.all
+    @hazards = @assessment.hazards.all
   end
 
   # GET /hazards/1
   # GET /hazards/1.json
   def show
-    @needed_control = @hazard.neededControls.first
+    @needed_control = @hazard.neededControl
   end
 
   # GET /hazards/new
   def new
-    @hazard = Hazard.new
+    @hazard = @assessment.hazards.new
   end
 
   # GET /hazards/1/edit
@@ -44,7 +44,7 @@ class HazardsController < ApplicationController
   def update
     respond_to do |format|
       if @hazard.update(hazard_params)
-        format.html { redirect_to @hazard, notice: 'Hazard was successfully updated.' }
+        format.html { redirect_to assessment_hazard_path(@assessment, @hazard), notice: 'Hazard was successfully updated.' }
         format.json { render :show, status: :ok, location: @hazard }
       else
         format.html { render :edit }
