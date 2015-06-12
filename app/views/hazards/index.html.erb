@@ -1,39 +1,17 @@
-<h1>Listing Hazards</h1>
+<p class="navbar-text navbar-right">
+  <%= link_to 'New Hazard', new_assessment_hazard_path(@assessment) %> |
+  <%= link_to 'Back', assessments_path %>
+</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Exposure</th>
-      <th>Occurance</th>
-      <th>Probability</th>
-      <th>Consequence</th>
-      <th>Rating</th>
-      <th>Control</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @hazards.each do |hazard| %>
-      <tr>
-        <td><%= hazard.name %></td>
-        <td><%= hazard.description %></td>
-        <td><%= hazard.exposure %></td>
-        <td><%= hazard.occurance %></td>
-        <td><%= hazard.probability %></td>
-        <td><%= hazard.consequence %></td>
-        <td><%= hazard.rating %></td>
-        <td><%= hazard.control %></td>
-        <td><%= link_to 'Show', assessment_hazard_path(@assessment, hazard.id) %></td>
-        <td><%= link_to 'Edit', edit_assessment_hazard_path(@assessment, hazard.id) %></td>
-        <td><%= link_to 'Destroy', assessment_hazard_path(@assessment, hazard.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<h1><%= @assessment.name %> Hazards<small> for <%= @assessment.workplace %></small></h1>
+<small><%= l(@assessment.created_at, format: '%b %d, %Y') %></small>
+<p><%= @assessment.description %></p>
 <br>
-<%= link_to 'Back', assessments_path %> |
-<%= link_to 'New Hazard', new_assessment_hazard_path(@assessment) %>
+<div class="list-group">
+  <% @hazards.each do |hazard| %>
+    <a href='<%= assessment_hazard_path(@assessment, hazard.id) %>' class="list-group-item"> 
+      <h2 class="list-group-item-heading"><%= hazard.name %></h2>
+      <p class="list-group-item-text"><span class="lead"><%= hazard.rating %> - </span><%= hazard.description %></p>
+    </a>
+  <% end %>
+</div>

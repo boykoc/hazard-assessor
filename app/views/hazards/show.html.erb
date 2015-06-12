@@ -1,51 +1,33 @@
-<p>
-  <strong>Name:</strong>
-  <%= @hazard.name %>
+<p class="navbar-text navbar-right">
+  <%= link_to 'Edit', edit_assessment_hazard_path(@assessment, @hazard.id) %> |
+  <%= link_to 'Destroy', assessment_hazard_path(@assessment, @hazard.id), method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Back', assessment_hazards_path(@assessment) %>
 </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @hazard.description %>
-</p>
+<h1><%= @hazard.name %></h1>
+  <p><%= @hazard.description %></p>
+  <hr>
+  <h2>Rating Info</h2>
 
-<p>
-  <strong>Exposure:</strong>
-  <%= @hazard.exposure %>
-</p>
 
-<p>
-  <strong>Occurance:</strong>
-  <%= @hazard.occurance %>
-</p>
+<div class="row">
+  <div class="col-md-4"><p><strong>Rating</strong> <%= @hazard.rating %></p></div>
+  <div class="col-md-4">  <p><strong>Exposure</strong> <%= @hazard.exposure %></p>
+  <p><strong>Occurance</strong> <%= @hazard.occurance %></p></div>
+  <div class="col-md-4">  <p><strong>Probability</strong> <%= @hazard.probability %></p>
+  <p><strong>Consquence</strong> <%= @hazard.consequence %></p></div>
+</div>
 
-<p>
-  <strong>Probability:</strong>
-  <%= @hazard.probability %>
-</p>
+<hr>
+  <h2>Current Controls</h2>
+  <p><%= @hazard.control %></p>
 
-<p>
-  <strong>Consequence:</strong>
-  <%= @hazard.consequence %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @hazard.rating %>
-</p>
-
-<p>
-  <strong>Control:</strong>
-  <%= @hazard.control %>
-</p>
-
-<%= link_to 'Edit', edit_assessment_hazard_path(@assessment, @hazard.id) %> |
-<%= link_to 'Back', assessment_hazards_path(@assessment) %>
+<hr>
 
 <% if @needed_control.present? %>
   <%= render template: 'needed_controls/show' %>
 <% else %>
-  <% # = render :partial => 'needed_controls/form' %>
-  <%= link_to 'Create', new_assessment_hazard_needed_control_path(@assessment, @hazard, @needed_control) %>
+  <%= link_to 'Add action item', new_assessment_hazard_needed_control_path(@assessment, @hazard, @needed_control) %>
 <% end %>
 
 

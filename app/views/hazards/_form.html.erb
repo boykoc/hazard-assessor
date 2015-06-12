@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :name %><br>
-    <%= f.text_area :name %>
+    <%= f.text_area :name, class: 'form-control'  %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: 'form-control'  %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :exposure %><br>
     <%= f.select(:exposure, options_for_select(
       [
@@ -29,10 +29,10 @@
         ['Unusual (one per month)', 4],
         ['Rare (few per year)', 5],
         ['Very Rare (yearly or less)', 6]
-      ], 3) 
+        ], 3), {}, { class: 'form-control' }
     ) %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :occurance %><br>
     <%= f.select(:occurance, options_for_select(
       [
@@ -42,10 +42,10 @@
         ['Very rare (very seldom, but possible)', 4],
         ['Very unlikely (slight possibility)', 5],
         ['Practically impossible', 6]
-      ], 3) 
+      ], 3), {}, { class: 'form-control' }
     ) %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :consequence %><br>
     <%= f.select(:consequence, options_for_select(
       [
@@ -54,14 +54,14 @@
         ['Moderate injury or illness with lost time or other loss', 3],
         ['Minor injury or illness without lost time or other loss', 4],
         ['No injury or illness, lost time or other loss', 5]
-      ], 3) 
+      ], 3), {}, { class: 'form-control' }
     ) %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :control %><br>
-    <%= f.text_area :control %>
+    <%= f.text_area :control, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-default'%>
   </div>
 <% end %>

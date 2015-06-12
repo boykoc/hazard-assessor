@@ -10,15 +10,17 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :completed %><br>
-    <%= f.check_box :completed %>
+  <div class="field checkbox">
+    <%= f.label :completed do %>
+      <%= f.check_box :completed %>
+      Completed
+    <% end %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-default' %>
   </div>
 <% end %>
