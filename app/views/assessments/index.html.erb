@@ -5,7 +5,7 @@
     <a href='<%= assessment_hazards_path(assessment) %>' class="list-group-item"> 
       <h2 class="list-group-item-heading"><%= assessment.name %></h2>
       <small><%= l(assessment.created_at, format: '%b %d, %Y') %></small>
-      <p class="list-group-item-text"><span class="lead"><%= assessment.workplace %> - </span><%= assessment.description %></p>
+      <p class="list-group-item-text"><span class="lead"><%= assessment.workplace %> - </span><%= truncate(assessment.description, length: 140) %></p>
     </a>
   <% end %>
 </div>

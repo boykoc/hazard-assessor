@@ -1,6 +1,7 @@
 class HazardsController < ApplicationController
   before_action :set_hazard, only: [:show, :edit, :update, :destroy]
   before_action :set_assessment
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /hazards
   # GET /hazards.json

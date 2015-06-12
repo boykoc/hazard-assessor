@@ -1,16 +1,18 @@
-<p class="navbar-text navbar-right">
+<p class="text-right">
   <%= link_to 'New Hazard', new_assessment_hazard_path(@assessment) %> |
   <%= link_to 'Back', assessments_path %>
 </p>
 
-<h1><%= @assessment.name %> Hazards<small> for <%= @assessment.workplace %></small></h1>
+<h1><%= @assessment.name %><small> for <%= @assessment.workplace %></small></h1>
 <small><%= l(@assessment.created_at, format: '%b %d, %Y') %></small>
 <p><%= @assessment.description %></p>
+<br>
+<h2>Hazards</h2>
 <br>
 <div class="list-group">
   <% @hazards.each do |hazard| %>
     <a href='<%= assessment_hazard_path(@assessment, hazard.id) %>' class="list-group-item"> 
-      <h2 class="list-group-item-heading"><%= hazard.name %></h2>
+      <h3 class="list-group-item-heading"><%= hazard.name %></h3>
       <p class="list-group-item-text"><span class="lead"><%= hazard.rating %> - </span><%= hazard.description %></p>
     </a>
   <% end %>

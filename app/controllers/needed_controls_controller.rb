@@ -1,5 +1,6 @@
 class NeededControlsController < ApplicationController
   before_action :set_needed_control, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /needed_controls
   # GET /needed_controls.json
