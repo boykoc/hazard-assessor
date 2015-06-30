@@ -1,5 +1,7 @@
 <p class="text-right">
-  <%= link_to 'New Hazard', new_assessment_hazard_path(@assessment) %> |
+  <% if @assessment.user == current_user %>
+    <%= link_to 'New Hazard', new_assessment_hazard_path(@assessment) %> |
+  <% end %>
   <%= link_to 'Back', assessments_path %>
 </p>
 

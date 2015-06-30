@@ -5,7 +5,12 @@ class AssessmentsController < ApplicationController
   # GET /assessments
   # GET /assessments.json
   def index
-    @assessments = Assessment.all
+    @assessments = Assessment.includes(:hazards).all
+    @users_assessments =  {}
+    if user_signed_in?
+      @assessments = Assessment.includes(:hazards).all.where.not(user_id: current_user.id)
+      @users_assessments = current_user.assessments.includes(:hazards)
+    end
   end
 
   # GET /assessments/1

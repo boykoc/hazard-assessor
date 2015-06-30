@@ -37,11 +37,15 @@
         </div><!-- /.container-fluid -->
       </nav>
     </header>
-    <main class="container">
+    <main>
+      <section class="sub-header">
+        <div class="container">
+          <h1><%= @page_title %></h1>
+        </div>
+      </section>
       <p id="notice" class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-
-      <%= yield %>
+      <section class="container"><%= yield %></section>
     </main>
   </body>
 </html>

@@ -18,9 +18,59 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* Header/Nav styles */
+
+.navbar-default {
+  background-color: #EEEEEE; /* #607D8B */
+}
+
+.navbar {
+  margin-bottom: 0px;
+  border: 0;
+  border-radius: 0;
+}
+
+.sub-header {
+  background: #FAFAFA;
+  min-height: 3em;
+}
+
+/* home page */
+.bigtime {
+  font-size: 60px;
+}
+
+.home-callout {
+  margin: 120px 0;
+}
+
+.home-callout .lead {
+  font-size: 130%;
+}
+
+/* alerts and notices */
+.alert, .notice {
+  padding: 0;
+  margin-bottom: 0;
+  border: 0px solid transparent;
+  border-radius: 0;
+}
+
+/* list groups styles */
+
 .list-group-item {
   border: 0;
   border-top: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
   padding-left: 0;
+}
+
+.list-group-item:first-child, .list-group-item:last-child {
+  border-radius: 0;
+}
+
+.list-group {
+  margin-bottom: 80px;
+  margin-top: 40px;
+  border-radius: 0;
 }

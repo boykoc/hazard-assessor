@@ -14,6 +14,8 @@
 </p>
 
 <%= link_to 'Hazards', assessment_hazards_path(@assessment) %> |
-<%= link_to 'Edit', edit_assessment_path(@assessment) %> |
-<%= link_to 'Destroy', @assessment, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+<% if @assessment.user == current_user %>
+  <%= link_to 'Edit', edit_assessment_path(@assessment) %> |
+  <%= link_to 'Destroy', @assessment, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+<% end %>
 <%= link_to 'Back', assessments_path %>

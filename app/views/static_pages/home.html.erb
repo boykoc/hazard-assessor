@@ -1,0 +1,47 @@
+<section class="home-callout">
+  <h2 class="text-center bigtime">Ouch</h2>
+  <p class="text-center lead">Create, explore and share the hazards in your workplace</p>
+</section>
+
+
+<h2>Recent Assessments from the Community</h2>
+<div class="list-group">
+  <% @assessments.each do |assessment| %>
+  <a href='<%= assessment_hazards_path(assessment) %>' class="list-group-item"> 
+    <h3 class="list-group-item-heading"><%= assessment.name %></h3>
+    <div class="row">
+      <div class="col-md-9"> <p><small><%= l(assessment.created_at, format: '%b %d, %Y') %></small></p></div>
+      <div class="col-md-3"><p><small>Hazards with a High rating <span class="badge"><%= assessment.hazards.where(rating: 'High').count %></span></small></p></div>
+    </div>
+    <p class="list-group-item-text"><span class="lead"><%= assessment.workplace %> - </span><%= truncate(assessment.description, length: 140) %></p>
+  </a>
+  <% end %>
+</div>
+
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body text-center">
+        Basic panel example
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body text-center">
+        Basic panel example
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body text-center">
+        Basic panel example
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
