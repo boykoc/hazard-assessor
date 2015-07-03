@@ -20,33 +20,33 @@
     <%= f.text_area :description, class: 'form-control'  %>
   </div>
   <div class="field form-group">
-    <%= f.label :exposure %><br>
+    <%= f.label :exposure, "How often are employees exposed?" %><br>
     <%= f.select(:exposure, options_for_select(
       [
-        ['Continuous', 1],
-        ['Frequent (daily)', 2],
-        ['Occasional (Once per week)', 3],
-        ['Unusual (one per month)', 4],
-        ['Rare (few per year)', 5],
-        ['Very Rare (yearly or less)', 6]
+        ['All day', 1],
+        ['Daily', 2],
+        ['Once per week', 3],
+        ['Once a month', 4],
+        ['Few times a year', 5],
+        ['Yearly or less', 6]
         ], 3), {}, { class: 'form-control' }
     ) %>
   </div>
   <div class="field form-group">
-    <%= f.label :occurance %><br>
+    <%= f.label :occurance, "What's the chance of it happening?"%><br>
     <%= f.select(:occurance, options_for_select(
       [
-        ['Very Likely (has happened/is happening)', 1],
-        ['Likely (probably – it could happen)', 2],
-        ['Rare (seldom but possible)', 3],
-        ['Very rare (very seldom, but possible)', 4],
-        ['Very unlikely (slight possibility)', 5],
-        ['Practically impossible', 6]
+        ['Has happened/is happening', 1],
+        ['Probably – it could happen', 2],
+        ['Seldom but possible', 3],
+        ['Very seldom, but possible', 4],
+        ['Slight possibility', 5],
+        ['Never, it\'s practically impossible', 6]
       ], 3), {}, { class: 'form-control' }
     ) %>
   </div>
   <div class="field form-group">
-    <%= f.label :consequence %><br>
+    <%= f.label :consequence, "What happens if you get hurt?" %><br>
     <%= f.select(:consequence, options_for_select(
       [
         ['Fatality or permanent disability, significant loss', 1],
