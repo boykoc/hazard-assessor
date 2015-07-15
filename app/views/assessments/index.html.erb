@@ -15,7 +15,7 @@
   <% end %>
 </div>
 <% if !@users_assessments.any? %>
-<%= link_to 'New Assessment', new_assessment_path %>
+<%= link_to 'Create an Assessment', new_assessment_path, class: 'btn btn-default btn-primary' %>
 <% end %>
 <% end %>
 
