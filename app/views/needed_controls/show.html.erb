@@ -1,12 +1,10 @@
-<% if @assessment.user == current_user %>
-  <p class="text-right">
-    <%= link_to 'Edit', edit_assessment_hazard_needed_control_path(@assessment, @hazard, @needed_control) %>
-  </p>
-<% end %>
+<p class="text-right">
+  <%= link_to 'Edit', edit_assessment_hazard_needed_control_path(@assessment, @hazard, @needed_control) %>
+</p>
 
 <h2>Action Items</h2>
 <% if @needed_control.completed %>
-<p><s><%= @needed_control.content %></s> <small>completed on <%= l(@needed_control.updated_at, format: '%b %d, %Y') %></small></p>
+  <p><s><%= @needed_control.content %></s> <small>completed on <%= l(@needed_control.updated_at, format: '%b %d, %Y') %></small></p>
 <% else %>
   <p><%= @needed_control.content %></p>
 <% end %>

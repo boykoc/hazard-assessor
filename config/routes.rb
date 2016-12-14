@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :needed_controls
     end
   end
-  devise_for :users
+
   root 'static_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.

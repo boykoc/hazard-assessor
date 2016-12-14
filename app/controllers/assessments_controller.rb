@@ -1,16 +1,10 @@
 class AssessmentsController < ApplicationController
   before_action :set_assessment, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /assessments
   # GET /assessments.json
   def index
-    @assessments = Assessment.includes(:hazards).all
-    @users_assessments =  {}
-    if user_signed_in?
-      @assessments = Assessment.includes(:hazards).all.where.not(user_id: current_user.id)
-      @users_assessments = current_user.assessments.includes(:hazards)
-    end
+    @assessments = Assessment.includes(:hazards).order(created_at: :asc).all
   end
 
   # GET /assessments/1
@@ -20,7 +14,7 @@ class AssessmentsController < ApplicationController
 
   # GET /assessments/new
   def new
-    @assessment = current_user.assessments.build
+    @assessment = Assessment.new
   end
 
   # GET /assessments/1/edit
@@ -30,7 +24,7 @@ class AssessmentsController < ApplicationController
   # POST /assessments
   # POST /assessments.json
   def create
-    @assessment = current_user.assessments.build(assessment_params)
+    @assessment = Assessment.new(assessment_params)
 
     respond_to do |format|
       if @assessment.save

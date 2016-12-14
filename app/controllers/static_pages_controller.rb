@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @assessments = Assessment.includes(:hazards).limit(2)
+    @assessments = Assessment.includes(:hazards).order(updated_at: :asc).limit(2)
   end
 
   def about
